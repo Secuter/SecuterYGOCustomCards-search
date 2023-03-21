@@ -10,7 +10,7 @@
       font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
     }
     #setname {
-      font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+      font-family: "Brush Script MT", cursive;
     }
     input {
       font-size: 20px;
@@ -21,6 +21,7 @@
     }
   </style>
   <script>
+var address = 'https://raw.githubusercontent.com/Secuter/SecuterYGOCustomCards-pics/main/';
 var sets = [];
 var cards = {
 'External Worlds': [12340007,12340008,12340009,12340010,12340011,12340012,12340002,12340006,12340028,12340029,12340030,12340031,12340032,12340033,12340038,12340039,12340040,12340041,12340042,12340043,12340027,12340001,12340003,12340004,12340005,12340024,12340018,12340019,12340020,12340025,12340036,12340026,12340046,12340022,12340035,12340045,12340014,12340021,12340034,12340015,12340044,12340013,12340017,12340016,12340037],
@@ -103,7 +104,7 @@ $(function() {
       $("#search").val(setid);
       var result = "";
       $.each(cards[setid], function(_, card) {
-        result = result.concat("<img src='https://raw.githubusercontent.com/Secuter/SecuterYGOCustomCards-pics/main/", card, ".png?raw=true' />");
+        result = result.concat("<img src='", address, card, ".png?raw=true' />");
       });
       $("#cards").html(result);
     }
@@ -118,7 +119,7 @@ $(function() {
         $("#setname").html(setid);
         var result = "";
         $.each(cards[setid], function(_, card) {
-          result = result.concat("<img src='https://raw.githubusercontent.com/Secuter/SecuterYGOCustomCards-pics/main/", card, ".png?raw=true' />");
+          result = result.concat("<img src='", address, card, ".png?raw=true' />");
         });
         $("#cards").html(result);
       }
@@ -135,7 +136,7 @@ $(function() {
         <label>Search </label><span class="ui-icon" style="height: 32px; width: 32px; background-size: 512px; background-position: -64px -96px;"></span><input type="text" id="search" class="autocomplete">
         <div id="buttons"></div>
       </fieldset>
-      <h2 id="setname"></h2>
+      <h1 id="setname"></h1>
       <div id="cards"></div>
     </div>
   </div>
