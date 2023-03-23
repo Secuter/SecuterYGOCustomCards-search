@@ -169,12 +169,20 @@ $(function() {
 	}
   
 	//get selected archetype
-	var get_setid = "<?php if(isset($_GET["setId"])) echo strip_tags($_GET["setId"]); else echo ''; ?>";
-	if (get_setid != '' && sets.includes(get_setid)) {
-		$("#search").val(get_setid);
-		$("#setname").html(get_setid);
+	var $_GET = new Array();
+	var url = location.search.replace("?", "").split("&");
+	for (var index = 0; index < url.length; index++) {
+		var value = url[index].split("=");
+		$_GET[value[0]] = value[1];
+	}
+	
+	var setid = $_GET["setId"].replace("%20", " ").replace("%27", "'");
+	console.log(setid);
+	if (sets.includes(setid)) {
+		$("#search").val(setid);
+		$("#setname").html(setid);
 		var result = "";
-		$.each(cards[get_setid], function(_, card) {
+		$.each(cards[setid], function(_, card) {
 			result = result.concat("<img src='", address, card, ".png?raw=true' />");
 		});
 		$("#cards").html(result);
