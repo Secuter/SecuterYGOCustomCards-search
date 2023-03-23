@@ -111,64 +111,74 @@ var cards = {
 };
 
 $(function() {
-  var buttons = "";
-  $.each(cards, function(set) {
-    buttons = buttons.concat("<button class='ui-button ui-widget ui-corner-all' id='", set, "'>", set, "</button>");
-    sets.push(set);
-  });
-  $("#buttons").append(buttons);
+	var buttons = "";
+	$.each(cards, function(set) {
+		buttons = buttons.concat("<button class='ui-button ui-widget ui-corner-all' id='", set, "'>", set, "</button>");
+		sets.push(set);
+	});
+	$("#buttons").append(buttons);
+	
+	$("button").click(function() {
+		var setid = $(this).attr("id");
+		if ($("#setname").html() == setid) {
+			$("#setname").html("");
+			$("#cards").html("");
+		}
+		else {
+			$("#setname").html(setid);
+			$("#search").val(setid);
+			var result = "";
+			$.each(cards[setid], function(_, card) {
+				result = result.concat("<img src='", address, card, ".png?raw=true' />");
+			});
+		$("#cards").html(result);
+		}
+	});
+	
+	$(".autocomplete").autocomplete({
+		source: sets,
+		close: function() {
+			var setid = $("#search").val();
+			if (sets.includes(setid)) {
+				$("#setname").html(setid);
+				var result = "";
+				$.each(cards[setid], function(_, card) {
+					result = result.concat("<img src='", address, card, ".png?raw=true' />");
+				});
+				$("#cards").html(result);
+			}
+		}
+	});
   
-  $("button").click(function() {
-    console.log($(this).attr("id"));
-    var setid = $(this).attr("id");
-    if ($("#setname").html() == setid) {
-      $("#setname").html("");
-      $("#cards").html("");
-    }
-    else {
-      $("#setname").html(setid);
-      $("#search").val(setid);
-      var result = "";
-      $.each(cards[setid], function(_, card) {
-        result = result.concat("<img src='", address, card, ".png?raw=true' />");
-      });
-      $("#cards").html(result);
-    }
-  });
+	 //get local preference settings
+	 if (!localStorage.getItem("mode")) {
+		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+			localStorage.setItem("mode", "dark-theme");
+		} else {
+			localStorage.setItem("mode", "light-theme");
+		}
+	 }
   
-  $(".autocomplete").autocomplete({
-    source: sets,
-    close: function() {
-      console.log($("#search").val());
-      var setid = $("#search").val();
-      if (sets.includes(setid)) {
-        $("#setname").html(setid);
-        var result = "";
-        $.each(cards[setid], function(_, card) {
-          result = result.concat("<img src='", address, card, ".png?raw=true' />");
-        });
-        $("#cards").html(result);
-      }
-    }
-  });
+	//set interface to match local
+	if (localStorage.getItem("mode") == "dark-theme") {
+		$("body").addClass("dark-theme");
+		$("body").removeClass("light-theme");
+	} else {
+		$("body").removeClass("dark-theme");
+		$("body").addClass("light-theme");
+	}
   
-  //get local preference settings
-  if (!localStorage.getItem("mode")) {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      localStorage.setItem("mode", "dark-theme");
-    } else {
-      localStorage.setItem("mode", "light-theme");
-    }
-  }
-  
-  //set interface to match local
-  if (localStorage.getItem("mode") == "dark-theme") {
-    $("body").addClass("dark-theme");
-    $("body").removeClass("light-theme");
-  } else {
-    $("body").removeClass("dark-theme");
-    $("body").addClass("light-theme");
-  }
+	//get selected archetype
+	var get_setid = "<?php if(isset($_GET["setId"])) echo strip_tags($_GET["setId"]); else echo ''; ?>";
+	if (get_setid != '' && sets.includes(get_setid)) {
+		$("#search").val(get_setid);
+		$("#setname").html(get_setid);
+		var result = "";
+		$.each(cards[get_setid], function(_, card) {
+			result = result.concat("<img src='", address, card, ".png?raw=true' />");
+		});
+		$("#cards").html(result);
+	}
 });
   </script>
 </head>
