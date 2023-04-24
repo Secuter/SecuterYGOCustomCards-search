@@ -1,0 +1,43 @@
+legend {
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+}
+
+#setname {
+    font-family: "Brush Script MT", cursive;
+}
+
+input {
+    font-size: 20px;
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+}
+
+label {
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+}
+
+body {
+    --font-color: dark;
+    --bg-color: white;
+}
+
+body.dark-theme {
+    --font-color: white;
+    --bg-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --font-color: white;
+        --bg-color: black;
+    }
+
+    body.light-theme {
+        --font-color: dark;
+        --bg-color: white;
+    }
+}
+
+body {
+    color: var(--font-color);
+    background: var(--bg-color);
+}
