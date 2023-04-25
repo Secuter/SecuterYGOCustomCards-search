@@ -21,13 +21,13 @@ body {
 }
 
 body.dark-theme {
-    --font-color: white;
+    --font-color: #EEEEEE;
     --bg-color: black;
 }
 
 @media (prefers-color-scheme: dark) {
     body {
-        --font-color: white;
+        --font-color: #EEEEEE;
         --bg-color: black;
     }
 
