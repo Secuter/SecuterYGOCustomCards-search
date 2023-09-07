@@ -41,3 +41,17 @@ body {
     color: var(--font-color);
     background: var(--bg-color);
 }
+
+div#dm-switch {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-image: url("../pics/light.png");
+    background-size: 50px 50px;
+}
+
+body.dark-theme div#dm-switch {
+    filter: invert(100%);
+}
