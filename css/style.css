@@ -16,19 +16,19 @@ label {
 }
 
 body {
-    --font-color: dark;
-    --bg-color: white;
+    --font-color: #000000;
+    --bg-color: #EEEEEE;
 }
 
 body.dark-theme {
     --font-color: #EEEEEE;
-    --bg-color: black;
+    --bg-color: #111111;
 }
 
 @media (prefers-color-scheme: dark) {
     body {
         --font-color: #EEEEEE;
-        --bg-color: black;
+        --bg-color: #111111;
     }
 
     body.light-theme {
