@@ -62,3 +62,4 @@ var cards = {
     'Generaider': [12345600,12345601,12345602,12345603],
     'Plunder Patroll': [12345605,12345606,12345607],
 };
+var end = true;
