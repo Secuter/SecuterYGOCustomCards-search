@@ -1,6 +1,17 @@
 var address = 'https://raw.githubusercontent.com/Secuter/SecuterYGOCustomCards-pics/main/';
 var sets = [];
 
+// Sort archetypes
+var sortedCards = Object.entries(cards);
+sortedCards.sort(function (a, b) {
+    return a[0].localeCompare(b[0]);
+});
+var sortedCardsObject = {};
+for (var i = 0; i < sortedCards.length; i++) {
+    sortedCardsObject[sortedCards[i][0]] = sortedCards[i][1];
+}
+cards = sortedCardsObject;
+
 $(function () {
     var buttons = "";
     $.each(cards, function (set) {
