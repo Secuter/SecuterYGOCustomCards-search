@@ -55,3 +55,7 @@ div#dm-switch {
 body.dark-theme div#dm-switch {
     filter: invert(100%);
 }
+
+.clear {
+  clear: both;
+}
