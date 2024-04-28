@@ -32,8 +32,8 @@ body.dark-theme {
     }
 
     body.light-theme {
-        --font-color: dark;
-        --bg-color: white;
+        --font-color: #111111;
+        --bg-color: #EEEEEE;
     }
 }
 
