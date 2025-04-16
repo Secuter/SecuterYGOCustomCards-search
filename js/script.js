@@ -30,7 +30,7 @@ $(function () {
             $("#setname").html(setid);
             $("#search").val(setid);
             var result = "";
-            $.each(cards[setid], function (_, card) {
+            $.each(cards[setid]['cards'], function (_, card) {
                 result = result.concat("<img src='", address, card, ".png?raw=true' />");
             });
             $("#cards").html(result);
