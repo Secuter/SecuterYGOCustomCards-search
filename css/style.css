@@ -1,61 +1,108 @@
-legend {
-    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
-}
-
-#setname {
-    font-family: "Brush Script MT", cursive;
-}
-
-input {
-    font-size: 20px;
-    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
-}
-
-label {
-    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
-}
-
 body {
-    --font-color: #000000;
-    --bg-color: #EEEEEE;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+  --font-color: #101010;
+  --bg-color: #E0E0E0;
+  --bg-color-alpha: #E0E0E080;
 }
 
 body.dark-theme {
-    --font-color: #EEEEEE;
-    --bg-color: #111111;
+  --font-color: #E0E0E0;
+  --bg-color: #202020;
+  --bg-color-alpha: #20202080;
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        --font-color: #EEEEEE;
-        --bg-color: #111111;
-    }
+  body {
+    --font-color: #E0E0E0;
+    --bg-color: #202020;
+    --bg-color-alpha: #20202080;
+  }
 
-    body.light-theme {
-        --font-color: #111111;
-        --bg-color: #EEEEEE;
-    }
+  body.light-theme {
+    --font-color: #101010;
+    --bg-color: #E0E0E0;
+    --bg-color-alpha: #E0E0E080;
+  }
 }
 
 body {
-    color: var(--font-color);
-    background: var(--bg-color);
-}
-
-div#dm-switch {
-    position: absolute;
-    top: 20px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    background-image: url("../pics/light.png");
-    background-size: 50px 50px;
-}
-
-body.dark-theme div#dm-switch {
-    filter: invert(100%);
+  color: var(--font-color);
+  background: var(--bg-color);
 }
 
 .clear {
   clear: both;
+}
+
+legend {
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+}
+
+#title {
+  font-size: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#setname {
+  font-family: "Brush Script MT", cursive;
+}
+
+input {
+  font-size: 20px;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+}
+
+label {
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+}
+
+div#dm-switch {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-image: url("../pics/light.png");
+  background-size: 50px 50px;
+}
+
+body.dark-theme div#dm-switch {
+  filter: invert(100%);
+}
+
+button.archetype {
+  width: 300px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center -110px;
+  color: var(--font-color);
+}
+
+button.archetype:hover, button.archetype:focus {
+  background-position: center -110px;
+  color: var(--darkreader-text-2e6e9e, #79b0d8);
+}
+
+button.archetype span {
+  background: var(--bg-color-alpha);
+  padding: 2px 4px;
+  border-radius: 8px;
+}
+
+button.archetype span:hover {
+  color: var(--darkreader-text-2e6e9e, #79b0d8);
+}
+
+button.archetype span:nth-child(1) {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+button.archetype span {
+  display: inline-block;
+}
+
+button.selected {
+  border-color: red;
 }

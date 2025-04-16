@@ -1,27 +1,71 @@
 <!DOCTYPE html>
+
 <head>
-  <meta charset="utf-8" />
-  <title>Secuter Cards</title>
-  <link rel="icon" type="image/gif" href="pics/sstar.png" />
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/redmond/jquery-ui.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
-  <script src="js/cardlist.js"></script>
-  <script src="js/script.js"></script>
+    <meta charset="utf-8" />
+    <title>Secuter Cards</title>
+    <link rel="icon" type="image/gif" href="pics/sstar.png" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/redmond/jquery-ui.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="js/archetypes.js"></script>
+    <script src="js/cardlist.js"></script>
+    <script src="js/script.js"></script>
 </head>
+
 <body>
-  <div id="container">
-    <div id="content">
-      <fieldset>
-        <legend>Select an archetype: </legend>
-        <label>Search </label><span class="ui-icon" style="height: 32px; width: 32px; background-size: 512px; background-position: -64px -96px;"></span><input type="text" id="search" class="autocomplete">
-        <div id="dm-switch"></div>
-        <div id="buttons"></div>
-      </fieldset>
-      <h1 id="setname"></h1>
-      <div id="cards"></div>
+    <div id="container">
+        <div id="content">
+            <div id="dm-switch"></div>
+            <div id="title">Secuter Custom Cards</div>
+            <hr>
+            <div id="tab" class="tab">
+                <button id="latest" class="ui-button ui-widget ui-corner-all" selected>Latest</button>
+                <button id="all" class="ui-button ui-widget ui-corner-all">All</button>
+                <button id="era1" class="ui-button ui-widget ui-corner-all">Era 1</button>
+                <button id="era2" class="ui-button ui-widget ui-corner-all">Era 2</button>
+                <button id="era3" class="ui-button ui-widget ui-corner-all">Era 3</button>
+                <div id="tab-era1" class="tab" hidden>
+                    <hr>
+                    <button id="era1" class="ui-button ui-widget ui-corner-all era">All</button>
+                    <button id="era1-external-worlds" class="ui-button ui-widget ui-corner-all era">External
+                        Worlds</button>
+                    <button id="era1-extra" class="ui-button ui-widget ui-corner-all era">Extra</button>
+                </div>
+                <div id="tab-era2" class="tab" hidden>
+                    <hr>
+                    <button id="era2" class="ui-button ui-widget ui-corner-all era">All</button>
+                    <button id="era2-dark" class="ui-button ui-widget ui-corner-all era">Dark</button>
+                    <button id="era2-earth" class="ui-button ui-widget ui-corner-all era">Earth</button>
+                    <button id="era2-water" class="ui-button ui-widget ui-corner-all era">Water</button>
+                    <button id="era2-wind" class="ui-button ui-widget ui-corner-all era">Wind</button>
+                    <button id="era2-fire" class="ui-button ui-widget ui-corner-all era">Fire</button>
+                    <button id="era2-light" class="ui-button ui-widget ui-corner-all era">Light</button>
+                    <button id="era2-extra" class="ui-button ui-widget ui-corner-all era">Extra</button>
+                </div>
+                <div id="tab-era3" class="tab" hidden>
+                    <hr>
+                    <button id="era3" class="ui-button ui-widget ui-corner-all era">All</button>
+                    <button id="era3-the-six" class="ui-button ui-widget ui-corner-all era">The Six</button>
+                    <button id="era3-extra" class="ui-button ui-widget ui-corner-all era">Extra</button>
+                </div>
+            </div>
+            <hr>
+            <div id="search_div">
+                <label>Search </label>
+                <span class="ui-icon"
+                    style="height: 32px; width: 32px; background-size: 512px; background-position: -64px -96px;"></span>
+                <input type="text" id="search" class="autocomplete">
+                <button id="back" class="ui-button ui-widget ui-corner-all" hidden>Back</button>
+            </div>
+            <hr>
+            <div id="archetypes"></div>
+            <h1 id="setname"></h1>
+            <div id="cards"></div>
+        </div>
     </div>
-  </div>
 </body>
+
 </html>
